@@ -5,6 +5,7 @@
 reminder:
 
 ## Stack:
+
 - Next.js 14+
 - ReactJS 18.X
 - TypeScript
@@ -12,32 +13,47 @@ reminder:
 - Zustand
 
 ## Task:
+
 ### Book Source
+
 - Use any public JSON/API (Open Library, Google Books API, mock JSON, etc.)
 - Display only the first 10 search results.
 
 ### Search
+
 - Input with placeholder strictly "Find a book"
 - The request is executed when pressing Enter.
 
 ### Reading List
+
 - "Add to reading list" button on the search result book card.
 - For cards in the list, display: title, author(s), year (if available).
 - For books with "War" in the title, highlight the title text with `text-red-500`.
 
 ### Editing
+
 In the reading list, each book should have:
+
 - A "Delete" button (removes from the list)
 - (Optional) a "Return to search" button, if desired.
 
 ### State Management
+
 - Store the reading list in a Zustand store.
 - Synchronize the state with localStorage whenever the list changes.
 - Restore the list from localStorage when initializing the application.
 
+---
 
---- DEFAULTS ---
+## AI tools used so far
 
+- deepseek helped set up the environment and bend package versions to fit the requirement (when it came to writing code - it's dumb and slow)
+- chatgpt supported me with code style advice and made boilerplate (it's opinionated and partially obsolete, but smarter)
+- copilot saved time on commenting, but mostly useless for code
+
+---
+
+# DEFAULTS
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
