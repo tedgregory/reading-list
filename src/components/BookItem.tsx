@@ -29,7 +29,7 @@ export default function BookItem({ book, isInReadingList = false }: Props) {
           onClick={() => addBook(book)}
           className="mt-2 bg-blue-500 text-white px-3 py-1 rounded"
         >
-          Add to reading list
+          Добавить в прочитанное
         </button>
       )}
     </div>

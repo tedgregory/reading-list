@@ -7,16 +7,16 @@ type Props = {
   checkInList: (book: Book) => boolean;
 };
 
-export default function BookList({ items, title, checkInList }: Props) {
+export default function SearchList({ items, title, checkInList }: Props) {
   return (
-    <div>
+    <div className="h-[60dvh] overflow-y-auto">
       <h2 className="text-xl font-semibold mb-4">
         {title} ({items.length})
       </h2>
       {items.length > 0 ? (
-        items.map((book) => (
-          <BookItem key={book.id} book={book} isInReadingList={checkInList(book)} />
-        ))
+        items
+          .filter((book) => !checkInList(book))
+          .map((book) => <BookItem key={book.id} book={book} />)
       ) : (
         <p className="text-gray-500">Список пуст</p>
       )}

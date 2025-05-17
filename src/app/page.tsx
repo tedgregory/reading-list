@@ -1,44 +1,32 @@
 'use client';
 
-import { useState } from 'react';
-import { useReadingListStore } from '@/store/useReadingList';
-import type { Book } from '@/types';
 import SearchBooks from '@/components/SearchBooks';
 import BookList from '@/components/BookList';
+import useApi from '@/hooks/useApi';
+import { useReadingListStore } from '@/store/useReadingList';
+import { Book } from '@/types';
+import SearchList from '@/components/SearchList';
 
 export default function Home() {
-  const [searchResults, setSearchResults] = useState<Book[]>([]);
+  const { searchResults, searchBooks } = useApi();
   const { books } = useReadingListStore();
 
-  const searchBooks = async (query: string) => {
-    try {
-      const response = await fetch(
-        `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}&limit=10`,
-      );
-      const data = await response.json();
-
-      const formattedResults = data.docs.map((doc: Book) => ({
-        id: doc.id,
-        title: doc.title,
-        authors: doc.authors,
-        publishedYear: doc.publishedYear?.toString(),
-      }));
-
-      setSearchResults(formattedResults);
-    } catch (error) {
-      console.error('Error fetching books:', error);
-      setSearchResults([]);
-    }
+  const isResultInList = (book: Book) => {
+    return books.some((b) => b.id === book.id);
   };
 
   return (
     <div className="container mx-auto p-4 max-w-4xl">
-      <h1 className="text-2xl font-bold mb-6">Book Search</h1>
+      <h1 className="text-2xl font-bold mb-6">Поиск книг в OpenLibrary</h1>
 
       <SearchBooks onSearch={searchBooks} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        <BookList items={searchResults} title="Результат"></BookList>
-        <BookList items={books} title="Прочитано"></BookList>
+        <SearchList
+          items={searchResults}
+          title="Результат"
+          checkInList={isResultInList}
+        ></SearchList>
+        <BookList items={books} title="Прочитано" checkInList={() => true}></BookList>
       </div>
     </div>
   );
