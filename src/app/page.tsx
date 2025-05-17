@@ -6,9 +6,10 @@ import useApi from '@/hooks/useApi';
 import { useReadingListStore } from '@/store/useReadingList';
 import { Book } from '@/types';
 import SearchList from '@/components/SearchList';
+import Spinner from '@/components/Spinner';
 
 export default function Home() {
-  const { searchResults, searchBooks } = useApi();
+  const { searchResults, searchBooks, isLoading } = useApi();
   const { books } = useReadingListStore();
 
   const isResultInList = (book: Book) => {
@@ -21,12 +22,16 @@ export default function Home() {
 
       <SearchBooks onSearch={searchBooks} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        <SearchList
-          items={searchResults}
-          title="Результат"
-          checkInList={isResultInList}
-        ></SearchList>
-        <BookList items={books} title="Прочитано" checkInList={() => true}></BookList>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <SearchList
+            items={searchResults}
+            title="Результаты поиска"
+            checkInList={isResultInList}
+          ></SearchList>
+        )}
+        <BookList items={books} title="Список прочитанного"></BookList>
       </div>
     </div>
   );
