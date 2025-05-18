@@ -9,7 +9,7 @@ type Props = {
 
 export default function SearchList({ items, title, checkInList }: Props) {
   return (
-    <div className="h-max-[60dvh] overflow-y-auto px-2">
+    <div className="max-h-[75dvh] overflow-y-auto px-2">
       <h2 className="text-xl font-semibold mb-4">
         {title} ({items.length})
       </h2>
