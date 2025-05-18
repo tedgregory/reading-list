@@ -13,10 +13,10 @@ export default function AboutPage() {
       </p>
       <ul className="mb-4">
         <li>
-          Деплой проекта: <a href="https://www.google.com"> Здесь </a>
+          Деплой проекта: <a href="https://reading-list-one.vercel.app/">Vercel</a>
         </li>
         <li>
-          Репозиторий: <a href="https://github.com/tedgregory"> Github</a>
+          Репозиторий: <a href="https://github.com/tedgregory/reading-list">Github</a>
         </li>
       </ul>
       <p className="mb-4">
