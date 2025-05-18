@@ -18,9 +18,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4 max-w-4xl">
-      <h1 className="text-2xl font-bold mb-6">Поиск книг в OpenLibrary</h1>
-
-      <SearchBooks onSearch={searchBooks} />
+      <SearchBooks onSearch={searchBooks} isLoading={isLoading} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         {isLoading ? (
           <Spinner />

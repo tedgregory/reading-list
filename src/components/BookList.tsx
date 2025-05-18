@@ -8,7 +8,7 @@ type Props = {
 
 export default function BookList({ items, title }: Props) {
   return (
-    <div>
+    <div className="h-max-[60dvh] overflow-y-auto px-2">
       <h2 className="text-xl font-semibold mb-4">
         {title} ({items.length})
       </h2>
