@@ -6,7 +6,7 @@
 
 Реакт понизил до 18, т.к. в требованиях именно 18^.
 
-Деплой: [Vercel](https://vercel.io), [пояснительная записка](https://tedgregory.ru)
+Деплой: [Vercel](https://jacofood-books.vercel.app/), [пояснительная записка](https://jacofood-books.vercel.app/about)
 
 [Original task](https://docs.google.com/document/d/1BeBupcA0z8noMpIBwQAjlyo4npKIbchHdGeh6Nnj4lM/edit?tab=t.0)
 
