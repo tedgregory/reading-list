@@ -1,26 +1,18 @@
-import { ApiBook, Book } from '@/types';
+import { fetchBooks } from '@/lib/fetchBooks';
+import { Book } from '@/types';
 import { useState } from 'react';
 
-export default function useApi() {
+export default function useApi(limit: number | null = null) {
   const [searchResults, setSearchResults] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const searchBooks = async (query: string) => {
     try {
       setIsLoading(true);
-      const response = await fetch(
-        `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}&limit=10`,
-      );
-      const data = await response.json();
 
-      const formattedResults: Book[] = data.docs.slice(0, 10).map((doc: ApiBook) => ({
-        id: doc.key,
-        title: doc.title,
-        authors: doc.author_name || [],
-        publishedYear: doc.first_publish_year,
-      }));
+      const books = await fetchBooks(query, limit);
 
-      setSearchResults(formattedResults);
+      setSearchResults(books);
     } catch (error) {
       console.error('Error fetching books:', error);
       setSearchResults([]);

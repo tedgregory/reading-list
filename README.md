@@ -1,5 +1,13 @@
 # Reading list test task for JACOFOOD.ru
 
+## Author comments
+
+Здесь напишу по-русски. В коде использовал английский.
+
+Реакт понизил до 18, т.к. в требованиях именно 18^.
+
+Деплой: [Vercel](https://vercel.io), [пояснительная записка](https://tedgregory.ru)
+
 [Original task](https://docs.google.com/document/d/1BeBupcA0z8noMpIBwQAjlyo4npKIbchHdGeh6Nnj4lM/edit?tab=t.0)
 
 reminder:

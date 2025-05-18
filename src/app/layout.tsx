@@ -1,4 +1,4 @@
-import '@/app/globals.scss';
+import '@/app/globals.css';
 import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
 import Link from 'next/link';
